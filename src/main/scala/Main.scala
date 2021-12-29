@@ -2,6 +2,7 @@
 import Day4.{Board, Row, generateDay4a, generateDay4b, getBoards}
 import Day5.{generateDay5, generateDay5b}
 import Day6.{generateDay6, generateDay6b}
+import Day8.calculateDay8
 import cats.effect.{IO, Resource}
 
 import java.io.File
@@ -41,14 +42,24 @@ object Main extends cats.effect.IOApp {
           println(s"day 4a = $result, 4b = $resultb")
         }
       _ <- read("day5.txt").map { list =>
-        val res = generateDay5(list)
+        /*val res = generateDay5(list)
         val res2 = generateDay5b(list)
-        println(s"day 5 = $res 5b = $res2")
+        println(s"day 5 = $res 5b = $res2")*/
       }
       _ <- read("day6.txt").map { list =>
-        val res = generateDay6(list)
+        /*val res = generateDay6(list)
         val res2 = generateDay6b(list.toList)
-        println(s"day 6 = $res 6b = $res2")
+        println(s"day 6 = $res 6b = $res2")*/
+      }
+      _ <- read("day7.txt").map { list =>
+        /*val res = Day7.calculateDay7(list)
+        val res2 = Day7.calculateDay7b(list)
+        println(s"day 7 = $res 7b = $res2")*/
+      }
+      _ <- read("day8.txt").map { list =>
+        val res = calculateDay8(list)
+        val res2 = calculateDay8(list)
+        println(s"day 8 = $res 7b = $res2")
       }
     } yield ExitCode.Success
 
