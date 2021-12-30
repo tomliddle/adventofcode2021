@@ -2,9 +2,9 @@ import Day4.{Board, Row}
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
-class CategorySpec extends AnyFunSpec with Matchers {
+class Day4TestSpec extends AnyFunSpec with Matchers {
 
-  describe("Bonus") {
+  describe("Day4") {
 
     it("should calculate a 0 below 5") {
 
@@ -22,14 +22,14 @@ class CategorySpec extends AnyFunSpec with Matchers {
       val r5a = Row(Seq(510, 520, 530, 540, 550))
       val ba = Board(Seq(r1a, r2a, r3a, r4a, r5a))
 
-      val x = Day4.generateDay4a(r5.numbers, Seq(ba, b))
+      val x = Day4.do4a(r5.numbers, Seq(ba, b))
       x shouldEqual (r1.numbers ++ r2.numbers ++ r3.numbers ++ r4.numbers).sum * 55
 
-      val y = Day4.generateDay4a(Seq(11, 21, 31, 41, 51), Seq(ba, b))
+      val y = Day4.do4a(Seq(11, 21, 31, 41, 51), Seq(ba, b))
       y shouldEqual (r1.numbers.tail ++ r2.numbers.tail ++ r3.numbers.tail ++ r4.numbers.tail ++ r5.numbers.tail).sum * 51
 
       val z =
-        Day4.generateDay4a(Seq(11, 12, 31, 110, 210, 310, 410, 510), Seq(b, ba))
+        Day4.do4a(Seq(11, 12, 31, 110, 210, 310, 410, 510), Seq(b, ba))
       z shouldEqual (r1a.numbers.tail ++ r2a.numbers.tail ++ r3a.numbers.tail ++ r4a.numbers.tail ++ r5a.numbers.tail).sum * 510
     }
 
@@ -49,18 +49,18 @@ class CategorySpec extends AnyFunSpec with Matchers {
       val r5a = Row(Seq(510, 520, 530, 540, 550))
       val ba = Board(Seq(r1a, r2a, r3a, r4a, r5a))
 
-      val xa = Day4.generateDay4b(r5.numbers, Seq(ba, b))
+      val xa = Day4.do4b(r5.numbers, Seq(ba, b))
       xa shouldEqual (r1.numbers ++ r2.numbers ++ r3.numbers ++ r4.numbers).sum * 55
 
-      val x = Day4.generateDay4b(r1a.numbers ++ r5.numbers, Seq(ba, b))
+      val x = Day4.do4b(r1a.numbers ++ r5.numbers, Seq(ba, b))
       x shouldEqual (r1.numbers ++ r2.numbers ++ r3.numbers ++ r4.numbers).sum * 55
 
       val y =
-        Day4.generateDay4b(r1a.numbers ++ Seq(11, 21, 31, 41, 51), Seq(ba, b))
+        Day4.do4b(r1a.numbers ++ Seq(11, 21, 31, 41, 51), Seq(ba, b))
       y shouldEqual (r1.numbers.tail ++ r2.numbers.tail ++ r3.numbers.tail ++ r4.numbers.tail ++ r5.numbers.tail).sum * 51
 
       val z =
-        Day4.generateDay4b(
+        Day4.do4b(
           r5.numbers ++ Seq(11, 12, 31, 110, 210, 310, 410, 510),
           Seq(b, ba)
         )

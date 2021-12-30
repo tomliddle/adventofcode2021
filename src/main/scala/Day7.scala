@@ -47,5 +47,4 @@ object Day7 {
     val l = toLongList(list.toList)
     calculate(l, crabPos => position => sevenBCrabCost(crabPos, position))
   }
-
 }

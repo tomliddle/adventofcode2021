@@ -43,7 +43,14 @@ object Day4 {
     (brd.unmarkedNumbers(drawn.toSet), drawn.head)
   }
 
-  def generateDay4a(numberList: Seq[Int], boards: Seq[Board]): Int = {
+  def generateDay4a(lista: Seq[String], listb: Seq[String]): Int = {
+    do4a(
+      lista.head.split(",").map(no => Integer.parseInt(no)),
+      getBoards(listb)
+    )
+  }
+
+  def do4a(numberList: Seq[Int], boards: Seq[Board]): Int = {
 
     def calc(drawn: Seq[Int], remaining: Seq[Int]): (Set[Int], Int) = {
       val brd: Option[Board] = boards.find {
@@ -60,7 +67,14 @@ object Day4 {
     res._1.sum * res._2
   }
 
-  def generateDay4b(numberList: Seq[Int], boards: Seq[Board]): Int = {
+  def generateDay4b(lista: Seq[String], listb: Seq[String]): Int = {
+    do4b(
+      lista.head.split(",").map(no => Integer.parseInt(no)),
+      getBoards(listb)
+    )
+  }
+
+  def do4b(numberList: Seq[Int], boards: Seq[Board]): Int = {
     def calc(
         drawn: Seq[Int],
         remaining: Seq[Int],

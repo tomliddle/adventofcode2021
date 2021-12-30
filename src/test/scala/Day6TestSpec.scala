@@ -4,7 +4,7 @@ import org.scalatest.matchers.should.Matchers
 
 class Day6TestSpec extends AnyFunSpec with Matchers {
 
-  describe("Bonus") {
+  describe("Day 6") {
 
     it("should get list") {
       Day6

@@ -3,7 +3,7 @@ import scala.math.abs
 
 object Day6 {
 
-  def getList(numberList: List[String]): List[Long] =
+  def getList(numberList: Seq[String]): Seq[Long] =
     numberList.head.split(",").toList.map(no => Integer.parseInt(no))
 
   def updateFish(numbers: Map[Int, Long]): Map[Int, Long] = {
@@ -32,18 +32,18 @@ object Day6 {
     }
   }
 
-  def listToMap(value: List[Long]): Map[Int, Long] = {
+  def listToMap(value: Seq[Long]): Map[Int, Long] = {
     value.groupMapReduce(x => x.toInt)(_ => 1L)((a, b) => a + b)
   }
 
   def generateDay6(numberList: Seq[String]): Long = {
-    val list = getList(numberList.toList)
+    val list = getList(numberList)
     val map = listToMap(list)
 
     calculate(80, map)
   }
 
-  def generateDay6b(numberList: List[String]): Long = {
+  def generateDay6b(numberList: Seq[String]): Long = {
     val list = getList(numberList)
     val map = listToMap(list)
 
